@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: chatboot-backend
+    env: python
+    rootDir: .
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GDRIVE_API_KEY
+        sync: false
+      - key: ELIUM_BASE_URL
+        value: https://cover-group.elium.com
+      - key: ELIUM_EMAIL
+        sync: false
+      - key: ELIUM_PASSWORD
+        sync: false
+      - key: ELIUM_PREINDEX_ON_STARTUP
+        value: "false"
+      - key: ENABLE_STATIC_SCENARIOS
+        value: "false"
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: CORS_ALLOW_CREDENTIALS
+        value: "false"
