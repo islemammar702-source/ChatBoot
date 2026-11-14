@@ -25,7 +25,7 @@ export function Footer() {
       <div className="container-site relative pb-10 pt-20 lg:pt-24">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Logo variant="light" />
+            <Logo variant="light" full className="!h-auto w-full max-w-[300px]" />
             <p className="mt-6 max-w-sm text-[14.5px] leading-relaxed text-white/60">{t('footer.description')}</p>
             <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">{t('footer.follow')}</p>
             <ul className="mt-3 flex gap-2">

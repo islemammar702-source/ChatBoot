@@ -19,7 +19,7 @@ export function Seo({ title, description, image, noindex, jsonLd }: Props) {
   const fullTitle = title ? `${title} | ULTRA SUPPLY` : t('seo.home.title');
   const origin = SITE || (typeof window !== 'undefined' ? window.location.origin : '');
   const url = `${origin}${pathname}`;
-  const img = image ? (image.startsWith('http') ? image : `${origin}${image}`) : `${origin}/og-image.svg`;
+  const img = image ? (image.startsWith('http') ? image : `${origin}${image}`) : `${origin}/og-image.png`;
 
   return (
     <Helmet>

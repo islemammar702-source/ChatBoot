@@ -37,6 +37,10 @@ Security is enforced server-side by RLS: visitors can only **insert** quotes/mes
 
 Static SPA: deploy `dist/` to Vercel (`vercel.json` included), Netlify (`public/_redirects` included) or any host with an SPA fallback to `index.html`. Set `VITE_SITE_URL` and update the domain in `public/robots.txt` and `public/sitemap.xml`.
 
+## Brand assets
+
+The official logo (`design/ultra-supply-logo-original.jpg`) is exported to `public/brand/` as transparent WebP: `logo` (header), `logo-full` (with the activities line) and white `-light` versions for dark backgrounds, plus favicon, app icons and `public/og-image.png` for link previews.
+
 ## Content to replace before launch
 
 - **Photos**: `src/data/images.ts` uses Unsplash placeholders; product/category images can be replaced from the admin.

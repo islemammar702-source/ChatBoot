@@ -43,7 +43,7 @@ export default function AdminLayout() {
       </Helmet>
       <aside className={`fixed inset-y-0 left-0 z-40 flex w-72 flex-col bg-navy-950 text-white transition-transform lg:translate-x-0 ${open ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex h-20 items-center justify-between border-b border-white/10 px-6">
-          <Link to="/admin"><Logo variant="light" withTagline={false} /></Link>
+          <Link to="/admin"><Logo variant="light" className="!h-10" /></Link>
           <button className="lg:hidden" onClick={() => setOpen(false)} aria-label="Fermer le menu"><X className="h-5 w-5" /></button>
         </div>
         {nav}
@@ -61,7 +61,7 @@ export default function AdminLayout() {
       <div className="lg:pl-72">
         <header className="sticky top-0 z-20 flex h-16 items-center gap-4 border-b border-navy/10 bg-white px-4 lg:hidden">
           <button onClick={() => setOpen(true)} aria-label="Ouvrir le menu" className="flex h-10 w-10 items-center justify-center"><Menu className="h-5 w-5" /></button>
-          <Logo withTagline={false} />
+          <Logo className="!h-9" />
         </header>
         <main className="mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-10">
           <Outlet />
