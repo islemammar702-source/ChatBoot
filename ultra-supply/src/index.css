@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-white font-sans text-[15px] leading-relaxed text-navy-950 antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  [dir='rtl'] body { @apply font-arabic text-[16px]; }
+  [dir='rtl'] .font-display { font-family: 'IBM Plex Sans Arabic', 'Archivo', sans-serif; letter-spacing: 0 !important; }
+  h1, h2, h3, h4 { @apply font-display; font-stretch: 100%; }
+  ::selection { background: #123b70; color: #fff; }
+  :focus-visible { outline: 2px solid #d92332; outline-offset: 3px; }
+  img { @apply max-w-full; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+}
+
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-10; }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-label text-brand-red;
+  }
+  .eyebrow::before { content: ''; @apply block h-px w-8 bg-brand-red; }
+  [dir='rtl'] .eyebrow { @apply text-[13px] normal-case tracking-normal; }
+
+  .display-xl { @apply font-display text-[clamp(3rem,10vw,9.5rem)] font-extrabold uppercase leading-[0.88] tracking-[-0.02em]; font-stretch: 112%; }
+  .display-lg { @apply font-display text-[clamp(1.75rem,4.6vw,4rem)] font-extrabold uppercase leading-[0.98] tracking-[-0.015em]; font-stretch: 106%; }
+  .display-md { @apply font-display text-[clamp(1.6rem,3vw,2.6rem)] font-bold uppercase leading-[1.04] tracking-[-0.01em]; font-stretch: 104%; }
+  .display-lg, .display-md { overflow-wrap: break-word; hyphens: auto; }
+  [dir='rtl'] .display-xl, [dir='rtl'] .display-lg, [dir='rtl'] .display-md { @apply normal-case leading-[1.25]; }
+  [dir='rtl'] .display-xl.brand-latin { font-family: 'Archivo', sans-serif; @apply uppercase leading-[0.88]; }
+
+  .btn {
+    @apply relative inline-flex min-h-[48px] whitespace-nowrap items-center justify-center gap-3 overflow-hidden px-7 text-[12px] font-semibold uppercase tracking-[0.16em] transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  [dir='rtl'] .btn { @apply text-[14px] normal-case tracking-normal; }
+  .btn-red { @apply bg-brand-red text-white hover:bg-brand-redDark; }
+  .btn-navy { @apply bg-navy text-white hover:bg-navy-950; }
+  .btn-ghost-light { @apply border border-white/40 text-white hover:border-white hover:bg-white hover:text-navy; }
+  .btn-ghost { @apply border border-navy/20 text-navy hover:border-navy hover:bg-navy hover:text-white; }
+  .btn-link { @apply inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:text-brand-red; }
+  [dir='rtl'] .btn-link { @apply text-[14px] normal-case tracking-normal; }
+
+  .field-label { @apply mb-2 block text-[11px] font-semibold uppercase tracking-[0.14em] text-navy/70; }
+  [dir='rtl'] .field-label { @apply text-[13px] normal-case tracking-normal; }
+  .field {
+    @apply block min-h-[48px] w-full rounded-none border border-navy/15 bg-white px-4 py-3 text-[15px] text-navy-950 placeholder:text-navy/35 transition-colors focus:border-navy focus:outline-none focus:ring-0;
+  }
+  .field[aria-invalid='true'] { @apply border-brand-red; }
+  .field-error { @apply mt-1.5 text-[12.5px] text-brand-red; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  .grain::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.08; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .grid-lines {
+    background-image: linear-gradient(to right, rgba(18,59,112,0.07) 1px, transparent 1px);
+    background-size: calc(100% / 6) 100%;
+  }
+}
